@@ -1,10 +1,10 @@
-var atomsGlobal;
-var setsGlobal;
-var resultsGlobal;
-var clickFindVars=0;
-
-
-
+//////////////////////////////////////////////////////////////////////////////////////
+// Лабораторная работа 2 по дисциплине ЛОИС
+// Выполнена студенткой группы 721701 БГУИР Дубровской Алисой Михайловной
+// Файл содержит функции функции обработки тестовых заданий, генерации формул, нахождения фиктивных 
+// пропозициональных переменных, проверки формулы на корректность
+// 03.05.2020
+//
 
 function addBrackets(str){
     return "("+str+")"
@@ -13,7 +13,6 @@ function addBrackets(str){
 function action1(str){//опер-р+константа
     var random=Math.random();
     str+=((random >= 0.3) ? '|' : (random >= 0.2 ? '&' : (random >= 0.1 ? '~' : '->')))
-   // str+=operationsForGenerating[Math.round(Math.random()*3)];
     str+=constants[Math.round(Math.random()*countOfArguments)];
     str=addBrackets(str);
     count++;
@@ -32,7 +31,6 @@ function action3(str){
     countMini=0
     var random=Math.random();
     str+=((random >= 0.3) ? '|' : (random >= 0.2 ? '&' : (random >= 0.1 ? '~' : '->')))
-  //  str+=operationsForGenerating[Math.round(Math.random()*3)];
     generateMiniFormula(constants[Math.round(Math.random()*countOfArguments)], 3)
     str+=miniFormula;
     str=addBrackets(str)
@@ -342,21 +340,6 @@ function end(){
         //стр-ра: output<-outputElement<-itemInformation
         var outputElement = document.createElement('form')
         output.append(outputElement)
-
-    
-/*      var dummies = findVars();
-        var itemInformation=document.createElement('p')
-    
-        if (dummies.length !== 0) {
-            itemInformation.innerHTML="Фиктивные пропозициональные переменные: "+[...dummies];
-            var truthTable = document.createElement('p');
-            drawTruthTable(truthTable);
-            answer.append(truthTable)
-        } else {
-            itemInformation.innerHTML = "Фиктивные пропозициональные переменные отсутствуют";
-        }
-        answer.append(itemInformation)
-         */
         
         formulaGlobal=formulasForUserArray[iterator]
         var dummies=findVars()

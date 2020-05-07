@@ -1,3 +1,8 @@
+var atomsGlobal;
+var setsGlobal;
+var resultsGlobal;
+var clickFindVars=0;
+
 var formulaGlobal="";
 var atomsGlobal;
 var setsGlobal;
